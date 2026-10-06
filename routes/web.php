@@ -34,3 +34,12 @@ use Illuminate\Support\Facades\Route;
         return 'Teachers Register';
     })->name('teacher-register');
  });
+
+ // Route parameters:
+ Route::get('student/{id}', function ($id) {
+    return 'Student id Number: '. $id;
+ });
+
+  Route::get('student/{id}/{reg}', function ($id, $reg) {
+    return 'Student id Number: ' . $id  . ' Registration Number: '  . $reg;
+ });
