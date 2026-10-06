@@ -23,3 +23,14 @@ use Illuminate\Support\Facades\Route;
  Route::get('details/teachers', function () {
     return '<h1>Teacher Details!</h1>';
  });
+
+ // Group routes
+
+ Route::prefix('register')->group(function () {
+    Route::get('students', function () {
+        return 'Student Register';
+    })->name('student-register');
+    Route::get('teachers', function() {
+        return 'Teachers Register';
+    })->name('teacher-register');
+ });
