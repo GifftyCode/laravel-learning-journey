@@ -43,3 +43,7 @@ use Illuminate\Support\Facades\Route;
   Route::get('student/{id}/{reg}', function ($id, $reg) {
     return 'Student id Number: ' . $id  . ' Registration Number: '  . $reg;
  });
+
+ Route::fallback(function() {
+    return '<h1>Lost in jungle... Please return back home!</h1>';
+ });
