@@ -77,3 +77,6 @@ use Illuminate\Support\Facades\Route;
  });
 
   Route::view('contact-us/{name}/{id}', 'contactUs');
+
+
+   Route::view('about-template', 'aboutTemplate');

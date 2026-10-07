@@ -4,6 +4,10 @@
     <div>
     <h2>Name: {{request() -> name}}</h2>
     <h2>ID: {{request() -> id}}</h2>
+
+    @include('SubViews.Input', [
+        'myName' => request() -> name
+    ])
     </div>
 
 
