@@ -71,4 +71,9 @@ use Illuminate\Support\Facades\Route;
  Route::view('services', 'services', ['development' => 'Web and Mobile', 'designs' => 'graphics and product']);
 
 
- 
+ // Fetching route parameters
+ Route::get('about-us/{name}/{id}', function ($name, $id) {
+    return view('aboutUs', compact('name', 'id'));
+ });
+
+  Route::view('contact-us/{name}/{id}', 'contactUs');
