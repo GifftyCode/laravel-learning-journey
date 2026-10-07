@@ -47,3 +47,28 @@ use Illuminate\Support\Facades\Route;
  Route::fallback(function() {
     return '<h1>Lost in jungle... Please return back home!</h1>';
  });
+
+ // Returning view routes
+ Route::get('about-us', function () {
+    return view('aboutUs');
+ });
+
+ Route::view('contact-us', 'contactUs');
+
+ // How to pass data from  routes to views
+ Route::get('team', function() {
+   $name = 'testers';
+   $email = 'tester@gmail.com';
+   // using the 'with' keyword
+   // return view('team')->with('teamName', $name)->with('teamEmail', $email);
+
+   // using the compact function
+   // return view('team', compact('name', 'email')); // using the exact variable name.
+
+   // using array method
+   return view('team', ['teamName' => $name, 'teamEmail' => $email]);
+ });
+ Route::view('services', 'services', ['development' => 'Web and Mobile', 'designs' => 'graphics and product']);
+
+
+ 
