@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -48,12 +50,15 @@ use Illuminate\Support\Facades\Route;
     return '<h1>Lost in jungle... Please return back home!</h1>';
  });
 
+
+
  // Returning view routes
  Route::get('about-us', function () {
     return view('aboutUs');
  });
 
  Route::view('contact-us', 'contactUs');
+
 
  // How to pass data from  routes to views
  Route::get('team', function() {
@@ -80,3 +85,20 @@ use Illuminate\Support\Facades\Route;
 
 
    Route::view('about-template', 'aboutTemplate');
+
+
+     //To call our controller function
+//  Route::get('students', [StudentController::class, 'index']);
+//  Route::get('about-student', [StudentController::class, 'aboutUs']);
+
+ // Grouping the controller call function
+//  Route::controller(StudentController::class)->group(function() {
+//     Route::get('students', 'index');
+//  Route::get('about-student',  'aboutUs');
+//  });
+
+ // Passing data from  route parameters to  controller
+ Route::controller(StudentController::class)->group(function() {
+    Route::get('students', 'index');
+ Route::get('about-student/{id}/{name}',  'aboutUs');
+ });
